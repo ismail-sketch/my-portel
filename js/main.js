@@ -66,69 +66,36 @@
 // } writeYourGeners();
 
 
-//Урок 22 (основы js: Передача по ссылке или по значению
-
-let a = 5,
-    b = a;
-
-    b = b+5;
-
-    console.log(b);
-    console.log(a);
-
-    const obj = {
-        a: 5,
-        b: 1
-    };
-
-    //const copy = obj;// Здесь не делается копия obj, а передается именно ссылка на него
-
-    // copy.a = 10;  
-    
-    // console.log(copy);
-    // console.log(obj);
-
-    //Как получить копию объекта (испольование цикла):
-
-    function copy(mainObj) {
-        let objectCopy = {};
-
-        let key;
-        for (key in mainObj) {
-            objectCopy[key] = mainObj[key];
-        }
-        
-        return objectCopy;
-    }
-
-    const numbers = {
-        a: 2,
-        b: 5,
-        c: {
-            x: 7,
-            y: 4
-        }
-    };
-
-    const newNumbers = copy(numbers);
-
-    newNumbers.a = 10;
-
-    console.log(newNumbers);
-    console.log(numbers);
 
 
 
+//  let buk = 1;
+//     // while(buk < 6) {
+//     //     console.log(buk);
+//     //     buk++;
+//     // }
 
+// // do {
+// //     console.log(buk);
+// //         buk++;
+// // }while(buk < 6);
 
-
-
-//===============================================================================
-
-// const options = {
-//     name: 'run',
-//     plase: 'full',
-//     dream: 'bomb',
-//     start: 'fluck'
+// for (buk; buk < 6; buk++) {
+//     console.log(buk);
 // }
-// console.log(Object.keys(options).length);
+
+// let num = 0;
+
+// while(num < 3) {
+//     console.log(`Число: ${num}`);
+//     num++;
+// }
+
+firstFor: for (let num = 0; num < 2; num++) {
+    for (let size = 0; size < 3; size++) {
+        if (size == 1) {
+            break firstFor;
+        } 
+        console.log(size);
+    }
+}
