@@ -1,0 +1,23 @@
+
+.wrapper {
+    height: 700px;
+    width: 100%;
+    background-color: rgb(251, 236, 21);
+}
+
+.title{
+    background-color: rgb(115, 233, 30);
+    padding: 50px 25px ;
+    width: 500px;
+    margin: 0 auto;
+
+}
+
+.h1 {
+    text-align: center;
+}
+.buttons {
+    width: 200px;
+    height: 30px;
+    cursor: pointer;
+}
