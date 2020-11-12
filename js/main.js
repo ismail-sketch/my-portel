@@ -38,5 +38,29 @@ wrapperDiv.prepend(div); //Добавление div, созданного, в JS
 //btns[1].remove(); //Удаление элемента
 
 //Метод replaceWith используется для замены одного элемента на другой
-div.innerHTML = '<h2>Привет, Геша</h2>'; //Добавление текста в элемент и вообще HTML элементы 
+div.innerHTML = '<h2>Привет, Геша</h2>'; //Добавление текста в элемент и вообще HTML элементы/Добавить ТЕКСТ еще можно с помощью textContent 
 div.insertAdjacentHTML('afterbegin', '<h2>Hello</h2>'); //Вставление HTML кусков в элементы
+
+// =====================================================================================
+
+// СОБЫТИЯ И ИХ ОБРАБОТЧИКИ 
+
+const deletElement = (e) => {
+	console.log(e.target);
+	console.log(e.type);
+
+	/* i++
+	 if (i == 1) {
+	 	btn.removeEventListener('click', deletElement);
+	}
+};*/
+
+btn.addEventListener('click', deletElement, {once: true}); // {once: true} - означает, что клик произойдет только один раз, после чего уже работать не будет
+overlay.addEventListener('click', deletElement);  /*Элементов btn и overlay у меня здесь нет, 
+ поэтому они не сработают. Это просто для примера. */
+
+ // Отменить стандартное поведение браузера:
+
+ link.addEventListener('click' (e) => {
+ 	e.preventDefault();
+ });// Этот код всегда помещается в самое начало обработчика событий. 
