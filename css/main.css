@@ -68,3 +68,16 @@ h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight: 400;}
     width: 100px;
     height: 20px;
 }
+
+.wrp_square {
+    position: relative;
+    width: 500px;
+    height: 500px;
+    border: solid 2px red;
+}
+.square {
+    position: absolute;
+    height: 100px;
+    width: 100px;
+    background-color: rgb(10, 236, 176);
+}
