@@ -42,4 +42,24 @@ btn.addEventListener('click', myAnimation);
 // 	id = setTimeout(log, 500);
 // }, 500);
 
+// РАБОТА С ДАТАМИ УРОК 40
+
+const now = new Date();
+
+//Получение дат
+
+// console.log(now.getFullYear());
+// console.log(now.getMonth());
+ //console.log(now.getDate(1605434429845));
+// console.log(now.getHours());
+// console.log(now.getUTCHours());
+//console.log(now.getTime());
+
+// Методы установки дат
+
+console.log(now.setHours(18));
+console.log(now);
+
+
+
 
