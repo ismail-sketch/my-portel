@@ -1,59 +1,123 @@
 "use strict";
 
-// Параметры документа, окна и работа с ними
+// КОНТЕКСТ ВЫЗОВА ФУНКЦИЙ УРОК 46
 
-const wrp = document.querySelector('.wrp'),
-      btn = document.querySelector('.btn');
+// function showThis(a, b) {
+//     console.log(this);
+//     function sum() {
+//         console.log(this);
+//         return a + b;
+//     }
 
-const width = wrp.clientWidth;
-const height = wrp.clientHeight;
-const cross = document.querySelector('.cross');
+//     console.log(sum());
+// }
+// showThis(4, 5);
 
-//console.log(width, height);
+// const obj = {
+//     a: 20,
+//     b: 15,
+//     dum: function() {
+//         function shout() {
+//             console.log(this);
+//         }
+//         shout();
+//     }
+// };
+
+// obj.dum();
+
+// function User(name, id) {
+//     this.name = name;
+//     this.id = id;
+//     this.human = true;
+// }
+//     let ivan = new User('Ivan', 28);
+
+// function sayName(surname) {
+//     console.log(this);
+//     console.log(this.name + surname);
+// }
+
+// const user = {
+//     name: 'John'
+// };
+
+// sayName.call(user, 'Smith'); // Метод присвоение контекста для функции
+// sayName.apply(user, ['Smith']); // Метод присвоение контекста для функции
+
+// function count(num) {
+//     return this*num;
+// }
+
+// const double = count.bind(2);
+// console.log(double(3));
+// console.log(double(13));
 
 
+// 1) Обычная функция: this = window, но если стоит use strict, то будет undefined 
+// 2) Констекстом у методов объекта будет сам объект
+// 3) this в конструкторах и классах - это новый экземпляр объекта
+// 4) Ручная привязка this: call, apply, bind
+// 5) У стрелочной функции нет своего контекста, и она ссылается на родителя
 
-  
-        btn.addEventListener('click', () => {
-        wrp.style.height = wrp.scrollHeight + 'px';
-        cross.classList.add('block');
-    });
+// const btn = document.querySelector('button');
 
-    cross.addEventListener('click', () => {
-        wrp.style.height = '';
-        cross.classList.remove('block');
-    });
-//console.log(wrp.getBoundingClientRect().top);
-//console.log(wrp.scrollTop);
+// btn.addEventListener('click', function(){
+//    this.style.backgroundColor = 'green';
+// });
 
-//=======================================================================
+// const obj = {
+//     num: 5,
+//     sayNumber: function() {
+//         const say = () => {
+//             console.log(this);
+//         };
 
-//  ФУНКЦИИ-КОНСТРУКТОРЫ УРОК 45
+//         say();
+//     }
+// };
 
-// Пример функции-конструктора, с помощью которой можно создавать новых пользователей: 
+// obj.sayNumber();
 
-function User(name, id) {
-    this.name = name;
-    this.id = id;
-    this.human = true;
-    this.hello = function() {
-        console.log(`Привет ${this.name}`);
-    };
+// const double = a => a * 2; // Если тело стрелочной функции помещается в одну строку, то она может быть записана таким образом
+
+// console.log(double(4));
+
+// =============================================================================
+
+// КЛАССЫ ES6 47 УРОК 
+
+class Rectangle {
+    constructor(height, width) {
+        this.height = height;
+        this.width = width;
+    }
+
+    calcAreal() {
+        return this.height * this.width;
+    }
 }
 
-User.prototype.exit = function(name) {
-    console.log(`Пользователь ${this.name} ушел`);
-};
+class ColoredRectangleWithText extends Rectangle {
+    constructor(height, width, text, bgColor) {
+        super(height, width);
+        this.text  = text;
+        this.bgColor = bgColor;
+    }
+
+    showMyProps() {
+        console.log(`Текст: ${this.text}, цвет: ${this.bgColor}`);
+    }
+}
+
+const div = new ColoredRectangleWithText(25, 10, 'Hello World', 'red');
+
+div.showMyProps();
+console.log(div.calcAreal());
 
 
+// const square = new Rectangle(10, 10);
+// const long = new Rectangle(20, 100);
 
-const ivan = new User('Ivan', 28);
-const alex = new User('Alex', 20);
-
-ivan.exit();
-
-ivan.hello();
-alex.hello();
-
-console.log(ivan);
-console.log(alex);
+// console.log(square.calcAreal());
+// console.log(long.calcAreal());
